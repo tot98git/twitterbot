@@ -11,13 +11,12 @@ var favorite = function() {
   Twitter.get('search/tweets', params, function(err,data){
   	console.log(data);
     // find tweets
-    var tweet = data.statuses;
-    var randomTweet = ranDom(tweet);   // pick a random tweet
+    var tweet = data.statuses[10].id_str;
 
     // if random tweet exists
     if(typeof randomTweet != 'undefined'){
       // Tell TWITTER to 'favorite'
-      Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response){
+      Twitter.post('favorites/create', {id: tweet}, function(err, response){
         // if there was an error while 'favorite'
         if(err){
           console.log('CANNOT BE FAVORITE... Error');
@@ -29,7 +28,7 @@ var favorite = function() {
     }
   });
 }
-	favorite();
+	setInterval(favorite,10000);
 	var shown = false;
 	console.log(shown);
 	function sendTweet(){
@@ -39,7 +38,7 @@ var favorite = function() {
 					console.log('Everything went fine!');
 					shown=true;
 				}
-				else{
+  				else{
 					console.log(err);
 				}
 			});
