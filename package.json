@@ -1,0 +1,12 @@
+{
+  "name": "bot.js",
+  "version": "1.0.0",
+  "description": "My first twitter bot that automatically favorites tweet matching the given query",
+  "main": "bot.js",
+  "dependencies": {
+    "twit": "^2.2.9"
+  },
+  "scripts": {    
+    "start": "node bot.js"
+  }
+}
