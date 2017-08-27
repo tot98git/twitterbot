@@ -12,14 +12,14 @@ var favorite = function() {
   	console.log(data);
     // find tweets
     var tweet = data.statuses[10].id_str;
-
+    console.log(tweet);
     // if random tweet exists
-    if(typeof randomTweet != 'undefined'){
+    if(typeof tweet != 'undefined'){
       // Tell TWITTER to 'favorite'
       Twitter.post('favorites/create', {id: tweet}, function(err, response){
         // if there was an error while 'favorite'
         if(err){
-          console.log('CANNOT BE FAVORITE... Error');
+          console.log("Something went wrong!");
         }
         else{
           console.log('FAVORITED... Success!!!');
@@ -28,7 +28,7 @@ var favorite = function() {
     }
   });
 }
-	setInterval(favorite,10000);
+	setInterval(favorite,100000);
 	var shown = false;
 	console.log(shown);
 	function sendTweet(){
