@@ -10,14 +10,10 @@ var favorite = function() {
   } 
   Twitter.get('search/tweets', params, function(err,data){
   	console.log(data);
-    // find tweets
     var tweet = data.statuses[10].id_str;
     console.log(tweet);
-    // if random tweet exists
     if(typeof tweet != 'undefined'){
-      // Tell TWITTER to 'favorite'
       Twitter.post('favorites/create', {id: tweet}, function(err, response){
-        // if there was an error while 'favorite'
         if(err){
           console.log("Something went wrong!");
         }
